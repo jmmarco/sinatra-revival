@@ -1,2 +1,2 @@
-require 'sinatra-revival'
+require './myapp'
 run Sinatra::Application
