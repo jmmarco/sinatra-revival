@@ -1,0 +1,25 @@
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form class="form-inline" action="/books/search" method="post">
+      <div class="form-group mx-sm-3 mb-2">
+        <input class="form-control" type="search" name="search" placeholder="Search...">
+      </div>
+
+      <button class="btn btn-success mb-2" type="submit" name="button">Search</button>
+    </form>
+
+    <% if @error %>
+      <span class="text-danger"><%= @error %></span>
+    <% end %>
+
+    <% if @books %>
+      <div class="">
+        <% @books.each do |book| %>
+          <p><a href="/books/<%= book['id'] %>"><%= book['title'] %></a></p>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

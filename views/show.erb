@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h2>Book Details</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <ul class="list-group">
+
+        <li class="list-group-item">
+          <div>
+            <h3>Title: <%= @book['title'] %></h3>
+          </div>
+          <div>
+            <h4>Author: <%= @book['author'] %></h4>
+          </div>
+          <!-- <span>Cover: <%= @book %></span> -->
+          <% if @book['book_cover'].empty? %>
+            <img class="img-thumbnail rounded mx-auto d-block" src="/images/book-cover.svg" alt="" width="100">
+          <% else %>
+            <img class="img-thumbnail rounded mx-auto d-block" src="/<%= @book['book_cover'] %>" alt="" width="100">
+          <% end %>
+      </li>
+      <li class="list-group-item">
+
+        <form class="form-inline" action="/books/<%= @book['id'] %>" method="post">
+          <a href="/books/<%= @book['id'] %>/edit" class="btn btn-warning btn-lg mr-1" role="button">Edit</a>
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit"class="btn btn-danger btn-lg ml-1" role="button">Remove</button>
+        </form>
+      </li>
+
+  </div>
+
+</div>

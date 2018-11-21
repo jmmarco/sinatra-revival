@@ -1,0 +1,21 @@
+<div class="card-deck">
+  <% @books.each do |book| %>
+    <!-- <div class="col"> -->
+      <div class="card">
+        <% if book['book_cover'].empty? %>
+          <% book['book_cover'] = 'images/book-cover.svg'  %>
+        <% end %>
+        <img class="card-img-top" src="<%= book['book_cover'] %>" alt="Book Cover" width="60">
+        <div class="card-body d-flex flex-column">
+          <h3 class="card-title"><a href="/books/<%= book['id'] %>"><%= book['title'] %></a></h3>
+          <h4>Author: <%= book['author'] %></h4>
+          <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <a href="/books/<%= book['id'] %>/edit" class="mt-auto btn btn-warning btn-lg" role="button">Edit</a>
+        </div>
+      </div>
+    <!-- </div> -->
+  <% end %>
+</div>
